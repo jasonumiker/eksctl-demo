@@ -1,0 +1,114 @@
+{
+    "Exports": [
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-NAT1EIP",
+            "Value": "13.55.134.46"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-NAT2EIP",
+            "Value": "13.210.182.61"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-NAT3EIP",
+            "Value": "3.106.91.94"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet1ACIDR",
+            "Value": "10.0.0.0/19"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet1AID",
+            "Value": "subnet-014e0a3596248b689"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet1ARouteTable",
+            "Value": "rtb-00f8eb36a5c08d463"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet2ACIDR",
+            "Value": "10.0.32.0/19"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet2AID",
+            "Value": "subnet-0493f6daaa9b427ec"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet2ARouteTable",
+            "Value": "rtb-015116063e74d9172"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet3ACIDR",
+            "Value": "10.0.64.0/19"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet3AID",
+            "Value": "subnet-052e223b2cb211ff8"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PrivateSubnet3ARouteTable",
+            "Value": "rtb-0068149713b21c085"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PublicSubnet1CIDR",
+            "Value": "10.0.128.0/20"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PublicSubnet1ID",
+            "Value": "subnet-0fc0036891d897f64"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PublicSubnet2CIDR",
+            "Value": "10.0.144.0/20"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PublicSubnet2ID",
+            "Value": "subnet-0b16ebd211cf2a145"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PublicSubnet3CIDR",
+            "Value": "10.0.160.0/20"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PublicSubnet3ID",
+            "Value": "subnet-0812a438ea0b04a74"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-PublicSubnetRouteTable",
+            "Value": "rtb-02d2b9e4e22be22e3"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-S3VPCEndpoint",
+            "Value": "vpce-0fff977ae911ac0e9"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-VPCCIDR",
+            "Value": "10.0.0.0/16"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-southeast-2:838424723531:stack/VPC/47ef1d30-f581-11e9-a3ee-06bee07abda0",
+            "Name": "VPC-VPCID",
+            "Value": "vpc-0f35c621db944252c"
+        }
+    ]
+}
