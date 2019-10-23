@@ -13,4 +13,4 @@ sed -i "s/Quick-Start-VPC-PrivateSubnet3AID/$PrivateSubnet3AID/g" cluster.yaml
 sed -i "s/Quick-Start-VPC-PublicSubnet1ID/$PublicSubnet1ID/g" cluster.yaml
 sed -i "s/Quick-Start-VPC-PublicSubnet2ID/$PublicSubnet2ID/g" cluster.yaml
 sed -i "s/Quick-Start-VPC-PublicSubnet3ID/$PublicSubnet3ID/g" cluster.yaml
-#rm exports.json
+rm exports.json
