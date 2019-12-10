@@ -3,33 +3,129 @@ kind: ClusterConfig
 
 metadata:
   name: cluster
-  region: ap-southeast-2
+  region: ap-northeast-1
   version: "1.14"
 
 vpc:
+  clusterEndpoints:
+    publicAccess: true
+    privateAccess: true
   subnets:
     private:
-      us-west-2a:
+      ap-northeast-1a:
         id: "Quick-Start-VPC-PrivateSubnet1AID"
-      us-west-2b:
+      ap-northeast-1c:
         id: "Quick-Start-VPC-PrivateSubnet2AID"
-      us-west-2c:
+      ap-northeast-1d:
         id: "Quick-Start-VPC-PrivateSubnet3AID"
     public:
-      us-west-2a:
+      ap-northeast-1a:
         id: "Quick-Start-VPC-PublicSubnet1ID"
-      us-west-2b:
+      ap-northeast-1c:
         id: "Quick-Start-VPC-PublicSubnet2ID"
-      us-west-2c:
+      ap-northeast-1d:
         id: "Quick-Start-VPC-PublicSubnet3ID"
 
+iam:
+  withOIDC: true
+  serviceAccounts:
+  - metadata:
+      name: kubernetes-external-secrets
+      namespace: default
+      labels: {app.kubernetes.io/name: kubernetes-external-secrets}
+    attachPolicyARNs:
+    - "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+  - metadata:
+      name: alb-ingress-controller
+      namespace: kube-system
+      labels: {app.kubernetes.io/name: alb-ingress-controller}
+    attachPolicy:
+      Version: '2012-10-17'
+      Statement:
+      - Action:
+        - acm:DescribeCertificate
+        - acm:ListCertificates
+        - acm:GetCertificate
+        - ec2:AuthorizeSecurityGroupIngress
+        - ec2:CreateSecurityGroup
+        - ec2:CreateTags
+        - ec2:DeleteTags
+        - ec2:DeleteSecurityGroup
+        - ec2:DescribeAccountAttributes
+        - ec2:DescribeAddresses
+        - ec2:DescribeInstances
+        - ec2:DescribeInstanceStatus
+        - ec2:DescribeInternetGateways
+        - ec2:DescribeNetworkInterfaces
+        - ec2:DescribeSecurityGroups
+        - ec2:DescribeSubnets
+        - ec2:DescribeTags
+        - ec2:DescribeVpcs
+        - ec2:ModifyInstanceAttribute
+        - ec2:ModifyNetworkInterfaceAttribute
+        - ec2:RevokeSecurityGroupIngress
+        - elasticloadbalancing:AddListenerCertificates
+        - elasticloadbalancing:AddTags
+        - elasticloadbalancing:CreateListener
+        - elasticloadbalancing:CreateLoadBalancer
+        - elasticloadbalancing:CreateRule
+        - elasticloadbalancing:CreateTargetGroup
+        - elasticloadbalancing:DeleteListener
+        - elasticloadbalancing:DeleteLoadBalancer
+        - elasticloadbalancing:DeleteRule
+        - elasticloadbalancing:DeleteTargetGroup
+        - elasticloadbalancing:DeregisterTargets
+        - elasticloadbalancing:DescribeListenerCertificates
+        - elasticloadbalancing:DescribeListeners
+        - elasticloadbalancing:DescribeLoadBalancers
+        - elasticloadbalancing:DescribeLoadBalancerAttributes
+        - elasticloadbalancing:DescribeRules
+        - elasticloadbalancing:DescribeSSLPolicies
+        - elasticloadbalancing:DescribeTags
+        - elasticloadbalancing:DescribeTargetGroups
+        - elasticloadbalancing:DescribeTargetGroupAttributes
+        - elasticloadbalancing:DescribeTargetHealth
+        - elasticloadbalancing:ModifyListener
+        - elasticloadbalancing:ModifyLoadBalancerAttributes
+        - elasticloadbalancing:ModifyRule
+        - elasticloadbalancing:ModifyTargetGroup
+        - elasticloadbalancing:ModifyTargetGroupAttributes
+        - elasticloadbalancing:RegisterTargets
+        - elasticloadbalancing:RemoveListenerCertificates
+        - elasticloadbalancing:RemoveTags
+        - elasticloadbalancing:SetIpAddressType
+        - elasticloadbalancing:SetSecurityGroups
+        - elasticloadbalancing:SetSubnets
+        - elasticloadbalancing:SetWebACL
+        - iam:CreateServiceLinkedRole
+        - iam:GetServerCertificate
+        - iam:ListServerCertificates
+        - waf-regional:GetWebACLForResource
+        - waf-regional:GetWebACL
+        - waf-regional:AssociateWebACL
+        - waf-regional:DisassociateWebACL
+        - tag:GetResources
+        - tag:TagResources
+        - waf:GetWebACL
+        Resource: "*"
+        Effect: Allow
+
 cloudWatch:
-    clusterLogging:
-        enableTypes: ["*"]
+  clusterLogging:
+    enableTypes:
+      - "audit"
+      - "authenticator"
+      - "api"
+      - "controllerManager"
+      - "scheduler"
+
+ClusterEndpoints:
+  privateAccess: true
+  publicAccess: true
 
 nodeGroups:
   - name: ng
-    instanceType: m5.xlarge
+    instanceType: m5.large
     desiredCapacity: 1
     privateNetworking: true
     volumeSize: 100
@@ -53,3 +149,18 @@ nodeGroups:
         albIngress: true
         xRay: true
         cloudWatch: true
+
+managedNodeGroups:
+  - name: managed-ng
+    instanceType: m5.large
+    desiredCapacity: 1
+    volumeSize: 100
+    ssh:
+      allow: true
+      publicKeyPath: ~/.ssh/id_rsa.pub
+
+fargateProfiles:
+  - name: default
+    selectors:
+      - namespace: default
+      - namespace: kube-system
